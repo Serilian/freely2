@@ -19,20 +19,20 @@
   <ion-grid style="width: 75%">
     <ion-row class="row-style">
       <ion-icon name="person" color="danger"></ion-icon>
-      <ion-input type="text" placeholder="enter name"></ion-input>
+      <ion-input [(ngModel)]="name" type="text" placeholder="enter name"></ion-input>
     </ion-row>
     <ion-row class="row-style">
       <ion-icon name="mail" color="danger"></ion-icon>
-      <ion-input type="email" placeholder="Please enter your email"></ion-input>
+      <ion-input [(ngModel)]="email" type="email" placeholder="Please enter your email"></ion-input>
     </ion-row>
 
     <ion-row class="row-style">
       <ion-icon name="key" color="danger"></ion-icon>
-      <ion-input type="password" placeholder="Please enter password"></ion-input>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Please enter password"></ion-input>
     </ion-row>
 
     <ion-row>
-      <button style="margin-top: 20px" ion-button round block outline color="light">Sign Up!</button>
+      <button (click)="onSignup()" style="margin-top: 20px" ion-button round block outline color="light">Sign Up!</button>
     </ion-row>
   </ion-grid>
 

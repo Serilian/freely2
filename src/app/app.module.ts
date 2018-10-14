@@ -13,6 +13,9 @@ import {FeedPage} from "../pages/feed/feed";
 
 
 firebase.initializeApp(firebaseConfig);
+firebase.firestore().settings({
+  timestampsInSnapshots: true
+});
 
 @NgModule({
   declarations: [

@@ -9,8 +9,10 @@ import firebase from 'firebase';
 export class FeedPage {
 
   text: string = '';
+  posts:any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.getPosts();
   }
 
   onPost() {
@@ -22,7 +24,21 @@ export class FeedPage {
     }).then((doc)=>{
       console.log(doc);
       this.text = '';
+      this.getPosts();
     }).catch(error => {console.log(error)})
+  }
+
+  getPosts() {
+    this.posts = [];
+    firebase.firestore().collection('posts').get()
+      .then((docs)=>{
+        docs.forEach(doc => {
+          this.posts.push(doc);
+
+        });
+        console.log(this.posts);
+      })
+      .catch(err => console.log(err))
   }
 
 }
